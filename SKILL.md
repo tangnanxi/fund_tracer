@@ -1,3 +1,12 @@
+---
+name: fund_tracer
+description: |
+  查询基金实时估算净值、涨跌幅与持仓收益。
+  当用户提到基金、基金收益、基金涨跌、持仓、净值、估算净值、天天基金等关键词时，
+  或用户想查看自己持有的基金当日表现、计算基金收益时，务必使用此技能。
+  也适用于用户想要追踪多只基金、记录基金持仓成本、查看基金历史净值的场景。
+---
+
 # Fund Tracker Skill
 
 查询订阅基金的实时估算净值、涨跌幅与持仓收益。
@@ -13,7 +22,7 @@
 | 文件 | 说明 |
 | --- | --- |
 | `SKILL.md` | 本说明文档 |
-| `fund_tracker.py` | 查询与收益计算脚本 |
+| `scripts/fund_tracker.py` | 查询与收益计算脚本 |
 | `funds.txt` | 基金代码列表（每行一个） |
 | `holdings.json` | 持仓配置：份额、成本价 |
 | `history.json` | 每日估算净值历史 |
@@ -39,8 +48,10 @@
 
 ### 2. 首次运行生成持仓配置
 
+在技能所在目录执行：
+
 ```bash
-python fund_tracker.py
+python scripts/fund_tracker.py
 ```
 
 首次运行会自动在同目录下生成 `holdings.json`，格式如下：
@@ -83,7 +94,7 @@ python fund_tracker.py
 再次运行脚本：
 
 ```bash
-python fund_tracker.py
+python scripts/fund_tracker.py
 ```
 
 脚本会：
@@ -96,13 +107,13 @@ python fund_tracker.py
    - **累计收益** = （估算净值 − 成本价）× 份额
 4. 将当日净值追加到 `history.json`（同一天不会重复写入）
 
-### 5. 在 Kimi 中调用
+### 5. 在 Agent 中调用
 
-直接对我说：
+直接对用户说：
 
 > “查一下我的基金”
 
-我会读取 `~/.kimi-code/skills/fund-tracker/` 下的配置并返回实时涨跌与收益。
+Agent 会读取当前技能目录下的配置并返回实时涨跌与收益。
 
 ## 输出示例
 
