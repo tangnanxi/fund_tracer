@@ -22,7 +22,7 @@ description: |
 | 文件 | 说明 |
 | --- | --- |
 | `SKILL.md` | 本说明文档 |
-| `references/fund_tracker.py` | 查询与收益计算脚本 |
+| `scripts/fund_tracker.py` | 查询与收益计算脚本 |
 | `references/funds.txt` | 基金代码列表（每行一个） |
 | `references/holdings.json` | 持仓配置：份额、成本价 |
 | `references/history.json` | 每日估算净值历史 |
@@ -51,7 +51,7 @@ description: |
 在技能所在目录执行：
 
 ```bash
-python references/fund_tracker.py
+python scripts/fund_tracker.py
 ```
 
 首次运行会自动在 `references/` 目录下生成 `holdings.json`，格式如下：
@@ -94,7 +94,7 @@ python references/fund_tracker.py
 再次运行脚本：
 
 ```bash
-python references/fund_tracker.py
+python scripts/fund_tracker.py
 ```
 
 脚本会：

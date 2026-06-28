@@ -24,7 +24,7 @@ ENCODING = "utf-8"
 
 
 def get_skill_dir() -> Path:
-    # 脚本位于 references/ 下，技能根目录是上一级
+    # 脚本位于 scripts/ 下，技能根目录是上一级
     return Path(__file__).resolve().parent.parent
 
 
@@ -206,7 +206,7 @@ def main():
     # 1. 读取基金代码
     codes_from_txt = load_funds_txt(funds_txt_path)
     if not codes_from_txt and not holdings_path.exists():
-        print("用法: python references/fund_tracker.py <基金代码1> [基金代码2] ...")
+        print("用法: python scripts/fund_tracker.py <基金代码1> [基金代码2] ...")
         print(f"或在 {funds_txt_path} 中写入基金代码，每行一个")
         sys.exit(1)
 

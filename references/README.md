@@ -39,7 +39,7 @@ Agent 会帮你更新 `references/holdings.json` 中的持仓信息。
 | 文件 | 说明 |
 | --- | --- |
 | `SKILL.md` | 技能说明与触发描述 |
-| `references/fund_tracker.py` | 查询与收益计算脚本 |
+| `scripts/fund_tracker.py` | 查询与收益计算脚本 |
 | `references/funds.txt` | 基金代码列表 |
 | `references/holdings.json` | 持仓配置 |
 | `references/history.json` | 净值历史 |
