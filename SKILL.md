@@ -22,16 +22,16 @@ description: |
 | 文件 | 说明 |
 | --- | --- |
 | `SKILL.md` | 本说明文档 |
-| `scripts/fund_tracker.py` | 查询与收益计算脚本 |
-| `funds.txt` | 基金代码列表（每行一个） |
-| `holdings.json` | 持仓配置：份额、成本价 |
-| `history.json` | 每日估算净值历史 |
+| `references/fund_tracker.py` | 查询与收益计算脚本 |
+| `references/funds.txt` | 基金代码列表（每行一个） |
+| `references/holdings.json` | 持仓配置：份额、成本价 |
+| `references/history.json` | 每日估算净值历史 |
 
 ## 使用方法
 
 ### 1. 配置基金代码
 
-编辑 `funds.txt`，把你订阅的基金代码写进去，每行一个：
+编辑 `references/funds.txt`，把你订阅的基金代码写进去，每行一个：
 
 ```text
 008114
@@ -51,10 +51,10 @@ description: |
 在技能所在目录执行：
 
 ```bash
-python scripts/fund_tracker.py
+python references/fund_tracker.py
 ```
 
-首次运行会自动在同目录下生成 `holdings.json`，格式如下：
+首次运行会自动在 `references/` 目录下生成 `holdings.json`，格式如下：
 
 ```json
 {
@@ -70,7 +70,7 @@ python scripts/fund_tracker.py
 
 ### 3. 填入真实份额与成本价
 
-打开 `holdings.json`，把每只基金的 `shares`（持有份额）和 `cost_price`（买入单价）改成你的真实数据：
+打开 `references/holdings.json`，把每只基金的 `shares`（持有份额）和 `cost_price`（买入单价）改成你的真实数据：
 
 ```json
 {
@@ -94,18 +94,18 @@ python scripts/fund_tracker.py
 再次运行脚本：
 
 ```bash
-python scripts/fund_tracker.py
+python references/fund_tracker.py
 ```
 
 脚本会：
 
-1. 读取 `funds.txt` 中的基金代码
+1. 读取 `references/funds.txt` 中的基金代码
 2. 查询每只基金的实时估算净值与涨跌幅
-3. 根据 `holdings.json` 中的份额与成本价计算：
+3. 根据 `references/holdings.json` 中的份额与成本价计算：
    - **当日预估收益** = 昨日净值 × 份额 × 估算涨跌幅
    - **持仓市值** = 估算净值 × 份额
    - **累计收益** = （估算净值 − 成本价）× 份额
-4. 将当日净值追加到 `history.json`（同一天不会重复写入）
+4. 将当日净值追加到 `references/history.json`（同一天不会重复写入）
 
 ### 5. 在 Agent 中调用
 

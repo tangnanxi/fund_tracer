@@ -18,7 +18,7 @@ git clone https://github.com/tangnanxi/fund_tracer.git fund-tracker
 008114这个基金持仓平均成本1.0，持有份额20份
 ```
 
-Agent 会帮你更新 `holdings.json` 中的持仓信息。
+Agent 会帮你更新 `references/holdings.json` 中的持仓信息。
 
 ## 查询实时情况
 
@@ -39,7 +39,7 @@ Agent 会帮你更新 `holdings.json` 中的持仓信息。
 | 文件 | 说明 |
 | --- | --- |
 | `SKILL.md` | 技能说明与触发描述 |
-| `scripts/fund_tracker.py` | 查询与收益计算脚本 |
-| `funds.txt` | 基金代码列表 |
-| `holdings.json` | 持仓配置 |
-| `history.json` | 净值历史 |
+| `references/fund_tracker.py` | 查询与收益计算脚本 |
+| `references/funds.txt` | 基金代码列表 |
+| `references/holdings.json` | 持仓配置 |
+| `references/history.json` | 净值历史 |
